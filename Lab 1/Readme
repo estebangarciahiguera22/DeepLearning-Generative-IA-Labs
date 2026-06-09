@@ -1,0 +1,66 @@
+## Lab 01 — Dialogue Summarization with FLAN-T5
+
+## Overview
+----------------------------------------------------
+This lab explores dialogue summarization using the FLAN-T5 model and the DialogSum dataset.
+
+The main goal was to understand how different prompting strategies affect the quality of generated summaries without updating the model weights.
+----------------------------------------------------
+## Topics Covered
+
+- Dialogue summarization
+- Prompt engineering
+- Zero-shot inference
+- One-shot inference
+- Few-shot inference
+- Instruction-style prompting
+- Generation parameters
+- Temperature
+- Maximum output tokens
+- Context window limitations
+-------------------------------------------------------------
+## Tools and Libraries
+
+- Python
+- Google Colab
+- Hugging Face Transformers
+- Hugging Face Datasets
+- PyTorch
+- FLAN-T5
+- DialogSum dataset
+-----------------------------------------------------------
+## What I Did
+
+In this lab, I loaded a pre-trained FLAN-T5 model and used it to summarize conversations from the DialogSum dataset.
+
+I tested different inference strategies:
+
+- No prompt engineering
+- Zero-shot prompting
+- One-shot prompting
+- Few-shot prompting
+- Instruction-style prompts
+
+I also experimented with generation parameters such as `temperature`, `do_sample`, and `max_new_tokens` to observe how they affect the model output.
+---------------------------------------------------------------
+## Key Results
+
+The model performed poorly when no clear instruction was provided. The generated output improved when the prompt included a direct summarization instruction.
+
+One-shot and few-shot prompting helped guide the model with examples, but too many examples caused context length limitations. This showed the importance of balancing prompt quality with the model's context window.
+
+Temperature also affected the output. Lower temperatures produced more conservative and stable responses, while higher temperatures created more varied but sometimes less precise summaries.
+----------------------------------------------------------------
+## Key Learning
+
+This lab showed that prompt design has a major impact on LLM behavior. Even without fine-tuning, a well-structured prompt can significantly improve the quality of the generated response.
+
+I also learned that smaller models can struggle with one-shot and few-shot inference when the task becomes complex or the prompt becomes too long.
+------------------------------------------------------------------
+## Professional Takeaway
+
+This lab helped me understand how prompt engineering can be used to guide LLMs toward better outputs before applying more advanced techniques such as fine-tuning, PEFT, or reinforcement learning.
+-----------------------------------------------------------------
+## Notes
+
+This notebook was completed as part of my Generative AI learning path. The focus was educational: understanding how FLAN-T5 responds to different prompt structures and generation settings.
