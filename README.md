@@ -2,7 +2,7 @@
 
 This repository contains hands-on Generative AI labs focused on Large Language Models, prompt engineering, fine-tuning, PEFT/LoRA, evaluation metrics, toxicity evaluation, and reinforcement learning with PPO.
 
-The goal of this repository is to document my practical learning process in modern LLM workflows and connect theory with real implementation using Python, Hugging Face, Google Colab, and open-source models.
+# The goal of this repository is to document my practical learning process in modern LLM workflows and connect theory with real implementation using Python, Hugging Face, Google Colab, and open-source models.
 ------------------------------------------------------
 ## Repository Structure
 
