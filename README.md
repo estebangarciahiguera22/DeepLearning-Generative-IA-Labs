@@ -75,7 +75,7 @@ A RoBERTa-based hate speech classifier was used as a reward model, and the notha
 - Quantitative and qualitative evaluation
 ------------------------------------------------------
 # Technologies Used
--Python
+- Python
 - Google Colab
 - Hugging Face Transformers
 - Hugging Face Datasets
