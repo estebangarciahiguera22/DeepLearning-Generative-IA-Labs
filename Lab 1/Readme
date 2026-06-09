@@ -1,6 +1,6 @@
-## Lab 01 — Dialogue Summarization with FLAN-T5
+### Lab 01 — Dialogue Summarization with FLAN-T5
 
-## Overview
+### Overview
 ----------------------------------------------------
 This lab explores dialogue summarization using the FLAN-T5 model and the DialogSum dataset.
 
