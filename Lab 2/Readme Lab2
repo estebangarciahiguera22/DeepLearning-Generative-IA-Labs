@@ -1,0 +1,88 @@
+# Lab 02 — Fine-Tuning FLAN-T5 with PEFT/LoRA
+-------------------------------------------------------
+## Overview
+
+This lab focuses on fine-tuning a language model for dialogue summarization using FLAN-T5 and the DialogSum dataset.
+
+The main goal was to understand how model performance changes after fine-tuning and how Parameter Efficient Fine-Tuning methods such as LoRA can reduce the number of trainable parameters.
+-------------------------------------------------------
+## Topics Covered
+
+- Dialogue summarization
+- Instruction fine-tuning
+- Full fine-tuning
+- Parameter Efficient Fine-Tuning
+- LoRA
+- Trainable parameters
+- Tokenization
+- Dataset preprocessing
+- ROUGE evaluation
+- Model comparison before and after tuning
+-------------------------------------------------------
+## Tools and Libraries
+
+- Python
+- Google Colab
+- Hugging Face Transformers
+- Hugging Face Datasets
+- Hugging Face Evaluate
+- PEFT
+- LoRA
+- PyTorch
+- FLAN-T5
+- DialogSum dataset
+- ROUGE
+-------------------------------------------------------
+## What I Did
+
+In this lab, I first evaluated the original FLAN-T5 model on dialogue summarization examples from the DialogSum dataset.
+
+Then I prepared the dataset by converting dialogues into instruction-style prompts and tokenizing both the model inputs and the target summaries.
+
+The lab explored the concept of full fine-tuning, where all model parameters are updated. However, because full fine-tuning FLAN-T5-base was too expensive for my personal Google Colab environment, I implemented an educational lightweight version using FLAN-T5-small and a reduced subset of the dataset.
+
+I also implemented a PEFT/LoRA workflow to compare parameter-efficient training with the full fine-tuning approach.
+-------------------------------------------------------
+## Experiments
+
+The lab compared three model stages:
+
+1. Original model before fine-tuning
+2. Lightweight full fine-tuning workflow
+3. PEFT/LoRA model
+
+The models were evaluated qualitatively by inspecting generated summaries and quantitatively using ROUGE metrics.
+-------------------------------------------------------
+## Key Results
+
+The original model produced incomplete or weak summaries in some cases.
+
+After the lightweight fine-tuning experiment, the model behavior changed and ROUGE scores improved. The outputs were not perfect because the training setup was intentionally small, but the experiment showed that fine-tuning can influence model behavior.
+
+The PEFT/LoRA approach trained only a small percentage of the total model parameters while still achieving measurable improvement in the educational experiment.
+-------------------------------------------------------
+## Key Metrics
+
+In the lightweight experiment, ROUGE scores improved after fine-tuning.
+
+PEFT/LoRA trained only a small percentage of the model parameters, showing how parameter-efficient methods can reduce training cost while still adapting the model to a specific task.
+-------------------------------------------------------
+## Key Learning
+
+This lab showed the practical difference between full fine-tuning and parameter-efficient fine-tuning.
+
+Full fine-tuning updates all model parameters and can be computationally expensive. PEFT/LoRA freezes most of the base model and trains only small adapter layers, making the process more efficient.
+
+I also learned how evaluation metrics such as ROUGE can be used to compare generated summaries against human reference summaries.
+-------------------------------------------------------
+## Professional Takeaway
+
+This lab helped me understand how LLMs can be adapted to specific tasks using fine-tuning and PEFT/LoRA.
+
+It also showed how to measure improvement using both qualitative inspection and quantitative evaluation metrics.
+-------------------------------------------------------
+## Notes
+
+This notebook was adapted to run in a personal Google Colab environment. Some training steps were made lighter because full fine-tuning with larger models can require more compute than a standard free Colab runtime provides.
+
+The focus of this lab was educational: understanding the fine-tuning workflow, PEFT/LoRA, trainable parameters, and ROUGE-based evaluation.
