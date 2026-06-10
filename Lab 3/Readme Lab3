@@ -1,0 +1,130 @@
+# Lab 03 — PPO + PEFT Detoxification
+
+----------------------------------------------------
+## Overview
+This lab explores an RLHF-style workflow using Proximal Policy Optimization (PPO) and PEFT/LoRA to guide a language model toward generating less toxic summaries.
+
+The model used FLAN-T5 for dialogue summarization, a RoBERTa-based hate speech classifier as the reward model, and PPO for reinforcement learning optimization.
+
+----------------------------------------------------
+## Topics Covered
+
+- Reinforcement Learning from Human Feedback concepts
+- Proximal Policy Optimization
+- PEFT
+- LoRA
+- Reward models
+- Toxicity evaluation
+- Reference models
+- KL divergence
+- Quantitative evaluation
+- Qualitative evaluation
+- Policy optimization
+
+----------------------------------------------------
+## Tools and Libraries
+
+- Python
+- Google Colab
+- Hugging Face Transformers
+- Hugging Face Datasets
+- Hugging Face Evaluate
+- PEFT
+- LoRA
+- TRL
+- PPOTrainer
+- PyTorch
+- FLAN-T5
+- RoBERTa hate speech classifier
+- DialogSum dataset
+
+----------------------------------------------------
+## What I Did
+
+In this lab, I prepared the DialogSum dataset and converted dialogues into instruction-style summarization prompts.
+
+Since the original pre-trained PEFT checkpoint was not available in my personal Google Colab environment, I created a local LoRA adapter on top of FLAN-T5.
+
+Then I wrapped the PEFT model with a PPO ValueHead and created a frozen reference model. The reference model represented the original policy, while the PPO model was the trainable policy.
+
+A RoBERTa-based hate speech classifier was used as the reward model. The model classified text into two labels:
+
+- `nothate`
+- `hate`
+
+The `nothate` logit was used as the positive reward signal during PPO training.
+
+The PPO training loop generated summaries, evaluated them with the reward model, and updated the trainable policy based on the reward score.
+
+----------------------------------------------------
+## Workflow
+
+The main workflow was:
+
+1. Load and preprocess the DialogSum dataset
+2. Create instruction-style summarization prompts
+3. Create a local PEFT/LoRA adapter
+4. Wrap the model with a PPO ValueHead
+5. Create a frozen reference model
+6. Load a RoBERTa-based hate speech reward model
+7. Evaluate toxicity before PPO training
+8. Run lightweight PPO fine-tuning
+9. Evaluate toxicity after PPO training
+10. Compare generated summaries qualitatively
+
+----------------------------------------------------
+## Quantitative Results
+
+Before PPO detoxification:
+
+- Mean toxicity: `0.00664550035726279`
+- Standard deviation: `0.009499706880559329`
+
+After PPO detoxification:
+
+- Mean toxicity: `0.006216385716106743`
+- Standard deviation: `0.005477724477362041`
+
+Improvement:
+
+- Mean toxicity improvement: `6.46%`
+- Standard deviation improvement: `42.34%`
+
+----------------------------------------------------
+## Qualitative Results
+
+The qualitative comparison showed that in 3 out of 5 examples, the PPO model received a higher `nothate` reward than the reference model.
+
+This means that, in several examples, the PPO-updated model generated responses that the reward model considered less toxic or more aligned with the `nothate` class.
+
+Some examples still received lower rewards after PPO, which is expected because this was a lightweight educational experiment with only a few PPO steps.
+
+----------------------------------------------------
+## Key Learning
+
+This lab showed how a reward model can guide an LLM toward safer outputs.
+
+PPO uses reward signals to update the model policy, while the frozen reference model helps prevent the updated model from drifting too far from the original behavior.
+
+PEFT/LoRA makes this process more efficient by training only a small percentage of the model parameters instead of updating the entire base model.
+
+----------------------------------------------------
+## Professional Takeaway
+
+This lab helped me understand the basic workflow behind RLHF-style training:
+
+1. Generate model outputs
+2. Score outputs with a reward model
+3. Use PPO to update the model policy
+4. Compare the model before and after optimization
+
+The experiment demonstrated how reinforcement learning and PEFT can be combined to influence LLM behavior in a more controlled and efficient way.
+
+----------------------------------------------------
+## Notes
+
+This notebook was adapted to run in a personal Google Colab environment.
+
+The original course lab expected a pre-trained PEFT checkpoint to be available in the runtime. Since that checkpoint was not available in my personal environment, I created a local LoRA adapter to preserve the educational workflow.
+
+This was a lightweight version of the lab. The goal was not to achieve production-level detoxification, but to understand the full PPO + PEFT workflow.
