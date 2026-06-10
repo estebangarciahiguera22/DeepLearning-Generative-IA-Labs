@@ -8,27 +8,7 @@ The goal of this repository is to document my practical learning process in mode
 
 ## Repository Structure
 
-``text
-DeepLearning-Generative-IA-Labs/
-│
-├── README.md
-│
-├── Lab 1/
-│   ├── Lab_1_Summarize_Dialogue_IA_LLMs_.py
-│   ├── README.md
-│   └── Lab_1_Summarize_Dialogue_IA_LLMs_.ipynb
-│
-├── Lab 2/
-│   ├── Lab_2_Fine_Tune_Generative_Ai_Model.py
-│   ├── README.md
-│   └── Lab_2_Fine_Tune_Generative_Ai_Model.ipynb
-│   
-│
-└── Lab 3/
-    ├── Lab_3_Fine_Tune_FLAN_T5_with_PPO_and_PEFT_to_Generate_Less_Toxic_Summaries.py
-    ├── README.md
-    └── Lab_3_Fine_Tune_FLAN_T5_with_PPO_and_PEFT_to_Generate_Less_Toxic_Summaries.ipynb
-``
+<img width="772" height="491" alt="image" src="https://github.com/user-attachments/assets/6b0f2e29-46e5-4ce6-8f60-021b0c48a9e7" />
 
 ------------------------------------------------------    
 
