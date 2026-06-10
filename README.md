@@ -11,6 +11,20 @@ The goal of this repository is to document my practical learning process in mode
 <img width="772" height="491" alt="image" src="https://github.com/user-attachments/assets/6b0f2e29-46e5-4ce6-8f60-021b0c48a9e7" />
 
 ------------------------------------------------------    
+## File Versions
+
+This lab includes two versions of the work:
+
+- `.ipynb` file: the original Jupyter/Google Colab notebook version.
+- `.py` file: a Python script export of the notebook.
+
+The `.ipynb` file preserves the original notebook structure, including code cells, markdown explanations, outputs, and the workflow used during the lab.
+
+The `.py` file is included as a readable code-only version. This is useful because GitHub may sometimes show an "Invalid Notebook" preview error for `.ipynb` files exported from Google Colab due to internal notebook metadata. When that happens, the Python file still allows the code to be reviewed directly in the repository.
+
+Both files represent the same lab. The notebook is the original interactive version, while the Python file is included for easier viewing and compatibility on GitHub.
+
+------------------------------------------------------   
 
 ## Labs Overview
 
